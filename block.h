@@ -18,6 +18,7 @@ using namespace std;
 struct Block {
     unsigned int index;
     unsigned int node_owner_number;
+	unsigned int node_destination_number;
     unsigned long int created_at;
 	unsigned long int arrived_at;
 

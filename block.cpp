@@ -76,7 +76,7 @@ void define_block_data_type_for_MPI(MPI_Datatype *new_type){
 
   //Definir las propiedades
   MPI_Aint displacements[2] = {offsetof(Block, index), offsetof(Block, created_at)};
-  int block_lengths[2]  = {2,2};
+  int block_lengths[2]  = {3,2};
   MPI_Datatype types[2] = {MPI_INT,MPI_UNSIGNED_LONG};
 
   //Crear la estructura para el nuevo tipo

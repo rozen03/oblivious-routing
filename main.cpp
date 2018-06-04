@@ -6,7 +6,7 @@
 using MPI::COMM_WORLD; using MPI::ANY_SOURCE; using MPI::ANY_TAG;
 using MPI::INT; using MPI::CHAR; using MPI::BOOL;
 using MPI::Status;
-
+// using MPI::MPI_THREAD_SERIALIZED;
 using namespace std;
 
 // Variables de MPI
@@ -15,7 +15,9 @@ MPI_Datatype *MPI_BLOCK;
 int main(int argc, char **argv) {
 
     // Inicializo MPI
-    int status = MPI_Init(&argc, &argv);
+    // int status = MPI_Init_(&argc, &argv);
+	int provided;
+	int status= MPI_Init_thread( &argc, &argv, MPI_THREAD_SERIALIZED, &provided );
     if (status != MPI_SUCCESS){
         fprintf(stderr, "Error de MPI al inicializar.\n");
         MPI_Abort(MPI_COMM_WORLD, status);
